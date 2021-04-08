@@ -16,7 +16,7 @@ export class PunchBag extends Entity {
       shape: new CANNON.Sphere(0.15), // Create sphere shaped body with a diameter of 0.3m
     })
 
-    // Add material and dampening to stop the locator rotating and moving continuously
+    // Add dampening to stop the locator rotating and moving continuously
     this.body.sleep()
     this.body.material = cannonMaterial
     this.body.linearDamping = 0.4 // Round will keep translating even with friction so you need linearDamping
