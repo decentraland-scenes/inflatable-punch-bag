@@ -1,11 +1,15 @@
-import { Sound } from "./modules/sound"
+import { Sound } from "./sound"
 
+// Base
 const base = new Entity()
 base.addComponent(new GLTFShape("models/baseDarkWithCollider.glb"))
 engine.addEntity(base)
 
+// Sound
 const punchSound = new Sound(new AudioClip("sounds/punch.mp3"))
 
+
+// Punchbag
 const punchBag = new Entity()
 punchBag.addComponent(new GLTFShape("models/dogePunchBag.glb"))
 punchBag.addComponent(new Transform({ position: new Vector3(8, 0, 8) }))
@@ -14,10 +18,9 @@ engine.addEntity(punchBag)
 
 // User variables
 let forwardVector: Vector3 = Vector3.Forward().rotate(Camera.instance.rotation) // Camera's forward vector
-let vectorScale: number = 25
+let vectorScale: number = 20
 
-/// --- NEEDS REFACTORING ---
-// Allow the user to interact with the ball
+// Allow the user to interact with the punchbag
 punchBag.addComponent(
   new OnPointerDown(
     (e) => {
