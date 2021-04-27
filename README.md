@@ -7,7 +7,7 @@ _demo of inflatable-punch-bag scene running in preview._
 An inflatable-punch-bag scene built using [cannon.js](https://github.com/schteppe/cannon.js) physics engine. To view the scene, please visit [here](https://inflatable-punch-bag.vercel.app/).
 
 ## Instructions
-Walk up to the punch bag and press the <kbd>Left Mouse Button</kbd>, <kbd>E</kbd> or <kbd>R</kbd> key to punch it. Use your mouse to look around and <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> keys on your keyboard to move forward, left, backward and right respectively. Finally, pressing the <kbd>Space</kbd> key will make your avatar jump.
+You can hit the bag from any direction and the bag will swing back and forth until it settles back into its original position. To punch the bag just walk up to it and press the <kbd>Left Mouse Button</kbd>, <kbd>E</kbd> or <kbd>R</kbd> key. Use your mouse to look around and <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> keys on your keyboard to move forward, left, backward and right respectively. Finally, pressing the <kbd>Space</kbd> key will make your avatar jump.
 
 ## Try it out
 
