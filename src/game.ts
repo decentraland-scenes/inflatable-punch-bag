@@ -8,7 +8,6 @@ engine.addEntity(base)
 // Sound
 const punchSound = new Sound(new AudioClip("sounds/punch.mp3"))
 
-
 // Punchbag
 const punchBag = new Entity()
 punchBag.addComponent(new GLTFShape("models/dogePunchBag.glb"))
@@ -24,7 +23,7 @@ let vectorScale: number = 20
 punchBag.addComponent(
   new OnPointerDown(
     (e) => {
-      // Apply impulse based on the direction of the camera
+      // Apply impulse based on camera's direction
       targetAnchorBody.applyImpulse(
         new CANNON.Vec3(forwardVector.x * vectorScale, forwardVector.y * vectorScale, forwardVector.z * vectorScale),
         new CANNON.Vec3(targetAnchorBody.position.x, targetAnchorBody.position.y, targetAnchorBody.position.z)
@@ -47,7 +46,7 @@ world.broadphase = new CANNON.NaiveBroadphase()
 
 // Create a ground plane and apply physics material
 const groundBody: CANNON.Body = new CANNON.Body({
-  mass: 0, // mass == 0 makes the body static
+  mass: 0, // Setting the mass == 0 makes the body static
 })
 groundBody.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), -Math.PI / 2) // Reorient ground plane to be in the y-axis
 
@@ -72,7 +71,7 @@ targetAnchorBody.addShape(sphereShape)
 targetAnchorBody.position.set(8, 3, 8)
 world.addBody(targetAnchorBody)
 
-targetAnchorBody.linearDamping = 0.4 // Round will keep translating even with friction so you need linearDamping
+targetAnchorBody.linearDamping = 0.4 // Round bodies will keep translating even with friction so you need linearDamping
 targetAnchorBody.angularDamping = 1.0 // Round bodies will keep rotating even with friction so you need angularDamping
 
 var spring = new CANNON.Spring(targetAnchorBody, fixedAnchorBody, {
@@ -88,7 +87,7 @@ world.addEventListener("postStep", function () {
   spring.applyForce()
 })
 
-const fixedTimeStep: number = 1.0 / 60.0 // seconds
+const fixedTimeStep: number = 1.0 / 60.0 // Seconds
 const maxSubSteps: number = 10
 
 class UpdateSystem implements ISystem {
